@@ -1,0 +1,37 @@
+COMP131 Assignment 2: The Pancake Problem
+Author: Thomas McNulty
+Date: 9 March 2021
+
+Questions:
+1. Define the problem as a searching problem:
+  This problem accepts a list of pancakes. It is searching for the order of 
+  pancakes which is [10,9,8,7,6,5,4,3,2,1]. Each node in the search is a
+  different organization of how the stack could be following the rules of 
+  pancake flipping. This way, an algorithm can search for a version of
+  the stack using the least amount of flips possible which is the same as
+  the search conditions.
+2. Define a possible cost function (backward cost)
+  A possible cost function could be how different the new stack is from
+  the starting stack. This would favor nodes which are similar to how
+  the stack started.
+3. Define a possible heuristic function (forward cost)
+  Using the provided resource, a possible heuristic function could be h(s) =
+  |{i|i∈ {1, . . . , n},|si−si+1|>1}|. 
+4. Implement an A* algorithm in Python
+5. Could the Uniform-Cost-Search algorithm be used? Yes
+  If so, provide an implementation of the same Pancake Problem with UCS.
+
+
+This assignment is ran by running python3 A*pancake.py or python3 UCSpancake.py
+in terminal.
+Give the input numbers from 1 to 10 separated by spaces 
+(e.g '10 9 8 7 6 5 4 3 2 1'), or run with random for a designated amount of 
+cycles (say 'random" to get stack quantity request).
+
+This assignment was implemented as a priority queue which 
+contains integer representations of stacks for node identifiers. My idea was to
+minimize the amount of sorting and searching by using the built in python 
+priority queue and set objects. There is some difficulty in replacing nodes 
+in the frontier which the solution was to pass if the node retrieved from the
+frontier had a higher priority than its cost 
+(meaning it got replaced at some point). 
